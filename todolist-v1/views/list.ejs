@@ -1,0 +1,27 @@
+<%- include header.ejs %> 
+
+    <div class="box" id="heading">
+        <!-- kindOfDay ini memanggil dariapp.js -->
+        <h1> <%= listTitle %> </h1> 
+    </div>
+
+    <div class="box">
+        <!-- ini untuk meanmbahkan li yang lebih banyak tanpa batas -->
+        <% for(let i=0; i<newListItems.length; i++){ %> 
+          <div class="item">
+              <input type="checkbox">
+            <!-- newListItem ini memanggil dariapp.js -->
+            <p><%= newListItems[i] %><p>
+          </div>
+        <% } %> 
+
+        <!-- action="/" ini artinya root -->
+        <form class="item" action="/" method="post">
+            <!-- autocomplete ini untuk mematikan riwayat text -->
+            <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+            <button type="submit" name="list" value=<%= listTitle %> >+</button>
+        </form>
+    </div>
+
+<!-- ini seperti php yang memanggil file dari luar -->
+<%- include footer.ejs %> 

@@ -1,0 +1,27 @@
+<!-- include untuk memanggil file didalam views folder -->
+<%- include("partials/header"); -%>
+
+<h1>Home</h1>
+<p><%= startingContent %> </p>
+
+<!-- ini menggunakan method forEach untuk menampilkan data-->
+<% posts.forEach((post)=>{ %>
+    <h1><%= post.title %> </h1>
+
+    <!-- ini untuk membatasi 100 huruf -->
+    <p> <% if(post.content.length >= 100) { %>
+        <%= post.content.substring(0, 100) + "..." %> 
+        <% }else{ %>
+            <%= post.content %>
+        <% } %> 
+
+        <!-- ini untuk buton read more -->
+        <a href="/posts/<%= post.title %>">Read More</a>
+    </p>
+
+<% }) %> 
+
+<!-- ini unutk for murni -->
+<%# for(let i=0; i<posts.length; i++){console.log(posts[i])} %>
+
+<%- include("partials/footer"); -%> 
